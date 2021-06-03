@@ -32,11 +32,11 @@ public class Juese {
     public Juese(String name) {
         this.name = name;
         this.zhongzu = MyUuid.getRandomInt(2);
-        this.hp = MyUuid.getRandom(128);
-        this.mp = MyUuid.getRandom(64);
-        this.gjl = MyUuid.getRandom(25);
+        this.hp = MyUuid.getRandom(128)+15;
+        this.mp = MyUuid.getRandom(64)+9;
+        this.gjl = MyUuid.getRandom(25)+4;
         this.jueduigjl = MyUuid.getRandom(5);
-        this.fyl = MyUuid.getRandom(25);
+        this.fyl = MyUuid.getRandom(25)+4;
         this.jueduifyl = MyUuid.getRandom(5);
         this.level = 1;
         this.pinji = 1;
