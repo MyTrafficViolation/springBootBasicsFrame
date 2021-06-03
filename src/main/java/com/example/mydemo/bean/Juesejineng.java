@@ -8,6 +8,12 @@ public class Juesejineng {
         this.jueseid = jueseid;
     }
 
+    public Juesejineng(String jueseid,int jinengid) {
+        this.jnid = MyUuid.getUuid();
+        this.jueseid = jueseid;
+        this.jinengid = jinengid;
+    }
+
     public Juesejineng(String jueseid ,Jineng jineng) {
 
         this.jnid = MyUuid.getUuid();

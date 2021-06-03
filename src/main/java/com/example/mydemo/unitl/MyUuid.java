@@ -20,4 +20,9 @@ public class MyUuid {
         Random random =new Random();
         return random.nextInt(max)+1;
     }
+    public static void  main(String a[]){
+        for (int i=1;i<=100;i++) {
+            System.out.println("------->第"+i+"次结果："+ (MyUuid.getRandomInt(2)-1));
+        }
+    }
 }
