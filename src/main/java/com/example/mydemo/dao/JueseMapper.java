@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface JueseMapper {
     /**
@@ -167,7 +169,7 @@ public interface JueseMapper {
     Juese selectByPrimaryKey(String jueseid);
 
     @Insert("select  *  from juese")
-    Juese selectAll();
+    List<Juese> selectAll();
 
 
     /**
