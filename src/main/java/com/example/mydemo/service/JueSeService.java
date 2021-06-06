@@ -82,7 +82,7 @@ public class JueSeService {
             returnData.setData(jueseMapper.selectAll());
         }catch (Exception e){
             returnData.setCode(-1);
-            returnData.setData("操作失败!");
+            returnData.setData(e.getMessage());
         }finally {
             return  returnData;
         }
