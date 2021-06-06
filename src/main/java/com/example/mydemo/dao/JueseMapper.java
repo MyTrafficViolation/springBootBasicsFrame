@@ -1,10 +1,7 @@
 package com.example.mydemo.dao;
 
 import com.example.mydemo.bean.Juese;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -168,7 +165,7 @@ public interface JueseMapper {
             "</script>")
     Juese selectByPrimaryKey(String jueseid);
 
-    @Insert("select  *  from juese")
+    @Select("select  *  from juese")
     List<Juese> selectAll();
 
 
