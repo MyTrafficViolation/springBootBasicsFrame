@@ -79,7 +79,7 @@ public class JueSeService {
     public ReturnData queryAll(){
         ReturnData returnData = new ReturnData();
         try {
-            returnData.setData(jueseMapper.selectByPrimaryKey(null));
+            returnData.setData(jueseMapper.selectAll());
         }catch (Exception e){
             returnData.setCode(-1);
             returnData.setData("操作失败!");
