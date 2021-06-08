@@ -21,4 +21,8 @@ public class JueseContract {
     public ReturnData queryAll(HttpServletRequest request){
         return  jueSeService.queryAll();
     }
+    @RequestMapping(value = "/queryEncounterForinfo",method = RequestMethod.GET)
+    public ReturnData queryEncounterForinfo(HttpServletRequest request){
+        return  jueSeService.queryEncounterForinfo();
+    }
 }

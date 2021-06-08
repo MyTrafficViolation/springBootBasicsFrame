@@ -2,6 +2,8 @@ package com.example.mydemo.bean;
 
 import com.example.mydemo.unitl.MyUuid;
 
+import java.util.Set;
+
 public class Juesejineng {
     public Juesejineng(String jueseid) {
         this.jnid = MyUuid.getUuid();
@@ -68,6 +70,17 @@ public class Juesejineng {
         this.zhongzu = zhongzu;
         this.shuxing = shuxing;
     }
+
+    public Set<Jinengaction> getJinengactions() {
+        return jinengactions;
+    }
+
+    public void setJinengactions(Set<Jinengaction> jinengactions) {
+        this.jinengactions = jinengactions;
+    }
+
+    //关联表-1对多
+    private Set<Jinengaction> jinengactions;
 
     /**
      *

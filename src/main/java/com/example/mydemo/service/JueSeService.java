@@ -87,4 +87,23 @@ public class JueSeService {
             return  returnData;
         }
     }
+    //queryEncounterForinfo
+    //05e6ba5c-8137-48da-a3d8-570d632a9eca
+    //28e0d226-d32d-4297-a615-ba33f2885698
+    //3cab9360-d561-4dd6-a38c-d2ae72b2e04d
+    //3fa5cf6a-66b5-4fdf-abcc-e25de254d65d
+    public ReturnData queryEncounterForinfo(){
+        ReturnData returnData = new ReturnData();
+        String [] jsids = {"05e6ba5c-8137-48da-a3d8-570d632a9eca","28e0d226-d32d-4297-a615-ba33f2885698"
+                ,"3cab9360-d561-4dd6-a38c-d2ae72b2e04d"
+                ,"3fa5cf6a-66b5-4fdf-abcc-e25de254d65d"};
+        try {
+            returnData.setData(jueseMapper.selectByPrimaryKey(jsids[MyUuid.getRandomInt(jsids.length)-1]));
+        }catch (Exception e){
+            returnData.setCode(-1);
+            returnData.setData(e.getMessage());
+        }finally {
+            return  returnData;
+        }
+    }
 }

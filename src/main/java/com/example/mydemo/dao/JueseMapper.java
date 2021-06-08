@@ -157,12 +157,16 @@ public interface JueseMapper {
      *
      * @mbg.generated
      */
-    @Insert("<script>" +
+    @Select("<script>" +
             "select \n" +
             "    * " +
             "    from juese\n" +
             "    where jueseID = #{jueseid,jdbcType=VARCHAR}" +
             "</script>")
+    @Results({
+            @Result(property = "juesejinengs", column = "jueseid",
+                    many = @Many(select = "com.example.mydemo.dao.JuesejinengMapper.selectByJueseId"))
+    })
     Juese selectByPrimaryKey(String jueseid);
 
     @Select("select  *  from juese")
