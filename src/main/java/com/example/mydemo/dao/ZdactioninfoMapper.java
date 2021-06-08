@@ -2,6 +2,10 @@ package com.example.mydemo.dao;
 
 import com.example.mydemo.bean.Zdactioninfo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+import java.util.Set;
 
 public interface ZdactioninfoMapper {
     /**
@@ -74,4 +78,8 @@ public interface ZdactioninfoMapper {
             "    </trim>" +
             "</script>")
     int insertSelective(Zdactioninfo record);
+
+
+    @Select("SELECT * from zdactioninfo where zdactionid in (#{zdactionid})")
+    Set<Zdactioninfo> selectByZdationid(List<Integer> zdactionid);
 }

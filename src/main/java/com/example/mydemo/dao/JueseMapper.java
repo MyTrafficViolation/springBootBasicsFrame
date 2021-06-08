@@ -158,10 +158,7 @@ public interface JueseMapper {
      * @mbg.generated
      */
     @Select("<script>" +
-            "select \n" +
-            "    * " +
-            "    from juese\n" +
-            "    where jueseID = #{jueseid,jdbcType=VARCHAR}" +
+            "select  * from juese where jueseID = #{jueseid,jdbcType=VARCHAR}" +
             "</script>")
     @Results({
             @Result(property = "juesejinengs", column = "jueseid",

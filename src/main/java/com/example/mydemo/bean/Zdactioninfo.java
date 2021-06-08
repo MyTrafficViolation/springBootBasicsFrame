@@ -1,6 +1,11 @@
 package com.example.mydemo.bean;
 
 public class Zdactioninfo {
+
+    public Zdactioninfo() {
+        super();
+    }
+
     public Zdactioninfo(Integer zdactionid) {
         this.zdactionid = zdactionid;
         this.onevalue = 0l;

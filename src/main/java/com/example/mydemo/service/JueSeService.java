@@ -23,6 +23,8 @@ public class JueSeService {
     ZdactionMapper zdactionMapper;
     @Resource
     ZdactioninfoMapper zdactioninfoMapper;
+    @Resource
+    JinengactionMapper jinengactionMapper;
 
 
     public ReturnData insertJuese(){
@@ -55,6 +57,10 @@ public class JueSeService {
                 Zdaction zdaction = new Zdaction("战斗状态");
                 zdactionMapper.insertSelective(zdaction);
                 System.out.println("--------->准备技能状态完成");
+                System.out.println("--------->开始准备人物技能中间件");
+                Jinengaction jinengaction = new Jinengaction(juesejineng.getJnid(), zdaction.getId());
+                jinengactionMapper.insertSelective(jinengaction);
+                System.out.println("--------->人物技能状态中间件准备完成");
                 int pis = MyUuid.getRandomInt(5);
                 System.out.println("--------->状态属性数总共：" + pis);
                 for (int i = 0; i < pis; i++) {
@@ -94,9 +100,10 @@ public class JueSeService {
     //3fa5cf6a-66b5-4fdf-abcc-e25de254d65d
     public ReturnData queryEncounterForinfo(){
         ReturnData returnData = new ReturnData();
-        String [] jsids = {"05e6ba5c-8137-48da-a3d8-570d632a9eca","28e0d226-d32d-4297-a615-ba33f2885698"
-                ,"3cab9360-d561-4dd6-a38c-d2ae72b2e04d"
-                ,"3fa5cf6a-66b5-4fdf-abcc-e25de254d65d"};
+        String [] jsids = {"03034a63-e8d6-49a4-8e71-58a544b8fca3",
+                "1ae3709f-d8c2-4db8-9f38-1a60fb0d2e61",
+                "7340479a-28fc-44b6-bf18-374f037d5f03",
+                "e1e5f378-b16f-441e-b673-0f0d2544d108"};
         try {
             returnData.setData(jueseMapper.selectByPrimaryKey(jsids[MyUuid.getRandomInt(jsids.length)-1]));
         }catch (Exception e){

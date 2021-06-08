@@ -1,6 +1,10 @@
 package com.example.mydemo.dao;
 
 import com.example.mydemo.bean.Jinengaction;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
+import java.util.Set;
 
 public interface JinengactionMapper {
     /**
@@ -17,5 +21,34 @@ public interface JinengactionMapper {
      *
      * @mbg.generated
      */
+    @Insert("<script>" +
+            "insert into jinengaction\n" +
+            "    <trim prefix=\"(\" suffix=\")\" suffixOverrides=\",\">\n" +
+            "      <if test=\"juesejinengid != null\">\n" +
+            "        juesejinengid,\n" +
+            "      </if>\n" +
+            "      <if test=\"zdactionid != null\">\n" +
+            "        zdactionid,\n" +
+            "      </if>\n" +
+            "    </trim>\n" +
+            "    <trim prefix=\"values (\" suffix=\")\" suffixOverrides=\",\">\n" +
+            "      <if test=\"juesejinengid != null\">\n" +
+            "        #{juesejinengid,jdbcType=VARCHAR},\n" +
+            "      </if>\n" +
+            "      <if test=\"zdactionid != null\">\n" +
+            "        #{zdactionid,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "    </trim>" +
+            "</script>")
     int insertSelective(Jinengaction record);
+    /*@Select("SELECT * FROM jinengaction where juesejinengid in " +
+            "(SELECT juesejinengid from jinengaction where juesejinengid in " +
+            "(select jnID from juesejineng where jueseid = #{jueseid,jdbcType=VARCHAR})" +
+            ")")*/
+    @Select("SELECT * FROM jinengaction where juesejinengid = #{juesejinengid}")
+    @Results({
+            @Result(property = "zdactions", column = "zdactionid",
+                    many = @Many(select = "com.example.mydemo.dao.ZdactionMapper.selectByKeys"))
+    })
+    Set<Jinengaction> selectByJuesejinengId(String juesejinengid);
 }

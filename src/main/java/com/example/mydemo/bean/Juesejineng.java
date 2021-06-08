@@ -2,9 +2,13 @@ package com.example.mydemo.bean;
 
 import com.example.mydemo.unitl.MyUuid;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Juesejineng {
+    public Juesejineng() {
+        super();
+    }
     public Juesejineng(String jueseid) {
         this.jnid = MyUuid.getUuid();
         this.jueseid = jueseid;
@@ -80,7 +84,7 @@ public class Juesejineng {
     }
 
     //关联表-1对多
-    private Set<Jinengaction> jinengactions;
+    private Set<Jinengaction> jinengactions = new HashSet<>();
 
     /**
      *
