@@ -46,9 +46,10 @@ public class Juesejineng {
         this.level = level;
         this.zhongzu = zhongzu;
         this.shuxing = shuxing;
+        this.exp = 0;
     }
 
-    public Juesejineng( String jueseid, Integer jinengid, Long hp, Long mp, Long gjl, Long fyl, Long jueduigjl, Long jueduifyl, Long maxhp, Long maxmp, Long maxgjl, Long maxfyl, Long maxjueduigjl, Long maxjueduifyl, Integer xiaoguoleixing, Integer leixing, Long needhp, Long needmp, Integer needleixing, String name, Integer level, Integer zhongzu, Integer shuxing) {
+    public Juesejineng( String jueseid, Integer jinengid, Long hp, Long mp, Long gjl, Long fyl, Long jueduigjl, Long jueduifyl, Long maxhp, Long maxmp, Long maxgjl, Long maxfyl, Long maxjueduigjl, Long maxjueduifyl, Integer xiaoguoleixing, Integer leixing, Long needhp, Long needmp, Integer needleixing, String name, Integer level, Integer zhongzu, Integer shuxing,Integer exp) {
         this.jnid = MyUuid.getUuid();
         this.jueseid = jueseid;
         this.jinengid = jinengid;
@@ -73,6 +74,7 @@ public class Juesejineng {
         this.level = level;
         this.zhongzu = zhongzu;
         this.shuxing = shuxing;
+        this.exp = exp;
     }
 
     public Set<Jinengaction> getJinengactions() {
@@ -85,6 +87,16 @@ public class Juesejineng {
 
     //关联表-1对多
     private Set<Jinengaction> jinengactions = new HashSet<>();
+
+    private Integer exp;
+
+    public Integer getExp() {
+        return exp;
+    }
+
+    public void setExp(Integer exp) {
+        this.exp = exp;
+    }
 
     /**
      *

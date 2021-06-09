@@ -26,6 +26,7 @@ public class Jineng {
         this.maxjueduifyl = jueduifyl;
         this.leixing = 1;
         this.needleixing = 1;
+        this.exp = 0;
     }
 
     public Jineng(String name, Integer level, Integer zhongzu, Integer shuxing, Long hp, Long mp, Long gjl, Long jueduigjl, Long fyl, Long jueduifyl,  Integer xiaoguoleixing, Integer leixing, Long needhp, Long needmp, Integer needleixing) {
@@ -50,6 +51,7 @@ public class Jineng {
         this.needhp = needhp;
         this.needmp = needmp;
         this.needleixing = needleixing;
+        this.exp = 0;
     }
 
     public Jineng(String name, Integer level, Integer zhongzu, Integer shuxing, Long hp, Long mp, Long gjl, Long jueduigjl, Long fyl, Long jueduifyl,  Integer xiaoguoleixing, Integer leixing, Long needhp, Long needmp) {
@@ -74,6 +76,43 @@ public class Jineng {
         this.needhp = needhp;
         this.needmp = needmp;
         this.needleixing = 1;
+        this.exp = 0;
+    }
+
+
+    public Jineng(String name, Integer level, Integer zhongzu, Integer shuxing, Long hp, Long mp, Long gjl, Long jueduigjl, Long fyl, Long jueduifyl,  Integer xiaoguoleixing, Integer leixing, Long needhp, Long needmp, Integer needleixing,Integer exp) {
+        this.name = name;
+        this.level = level;
+        this.zhongzu = zhongzu;
+        this.shuxing = shuxing;
+        this.hp = hp;
+        this.mp = mp;
+        this.gjl = gjl;
+        this.jueduigjl = jueduigjl;
+        this.fyl = fyl;
+        this.jueduifyl = jueduifyl;
+        this.maxhp = hp;
+        this.maxmp = mp;
+        this.maxgjl = gjl;
+        this.maxjueduigjl = jueduigjl;
+        this.maxfyl = fyl;
+        this.maxjueduifyl = jueduifyl;
+        this.xiaoguoleixing = xiaoguoleixing;
+        this.leixing = leixing;
+        this.needhp = needhp;
+        this.needmp = needmp;
+        this.needleixing = needleixing;
+        this.exp = exp;
+    }
+
+    private Integer exp;
+
+    public Integer getExp() {
+        return exp;
+    }
+
+    public void setExp(Integer exp) {
+        this.exp = exp;
     }
 
     /**

@@ -4,6 +4,7 @@ import com.example.mydemo.bean.*;
 import com.example.mydemo.dao.*;
 import com.example.mydemo.unitl.MyUuid;
 import com.example.mydemo.unitl.ReturnData;
+import com.example.mydemo.unitl.beanunitl.JuesejinengUnitl;
 import com.example.mydemo.unitl.beanunitl.ZdactioninfoUnitl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -106,6 +107,21 @@ public class JueSeService {
                 "e1e5f378-b16f-441e-b673-0f0d2544d108"};
         try {
             returnData.setData(jueseMapper.selectByPrimaryKey(jsids[MyUuid.getRandomInt(jsids.length)-1]));
+        }catch (Exception e){
+            returnData.setCode(-1);
+            returnData.setData(e.getMessage());
+        }finally {
+            return  returnData;
+        }
+    }
+
+    public ReturnData updateJuesejineng(Juesejineng juesejineng){
+        ReturnData returnData = new ReturnData();
+        try {
+            juesejineng.setExp(JuesejinengUnitl.getExp());
+            juesejineng.setLevel(juesejineng.getExp());
+            juesejinengMapper.updateByPrimaryKeySelective(juesejineng);
+            returnData.setData(juesejineng);
         }catch (Exception e){
             returnData.setCode(-1);
             returnData.setData(e.getMessage());

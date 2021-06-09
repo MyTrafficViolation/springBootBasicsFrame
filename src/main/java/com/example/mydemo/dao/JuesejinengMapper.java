@@ -29,7 +29,7 @@ public interface JuesejinengMapper {
             "      maxjueduigjl, maxjueduifyl, xiaoguoleixing, \n" +
             "      leixing, needhp, needmp, \n" +
             "      needleixing, name, level, \n" +
-            "      zhongzu, shuxing)\n" +
+            "      zhongzu, shuxing,exp)\n" +
             "    values (#{jnid,jdbcType=VARCHAR}, #{jueseid,jdbcType=VARCHAR}, #{jinengid,jdbcType=INTEGER}, \n" +
             "      #{hp,jdbcType=BIGINT}, #{mp,jdbcType=BIGINT}, #{gjl,jdbcType=BIGINT}, #{fyl,jdbcType=BIGINT}, \n" +
             "      #{jueduigjl,jdbcType=BIGINT}, #{jueduifyl,jdbcType=BIGINT}, #{maxhp,jdbcType=BIGINT}, \n" +
@@ -37,7 +37,7 @@ public interface JuesejinengMapper {
             "      #{maxjueduigjl,jdbcType=BIGINT}, #{maxjueduifyl,jdbcType=BIGINT}, #{xiaoguoleixing,jdbcType=INTEGER}, \n" +
             "      #{leixing,jdbcType=INTEGER}, #{needhp,jdbcType=BIGINT}, #{needmp,jdbcType=BIGINT}, \n" +
             "      #{needleixing,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, \n" +
-            "      #{zhongzu,jdbcType=INTEGER}, #{shuxing,jdbcType=INTEGER})")
+            "      #{zhongzu,jdbcType=INTEGER}, #{shuxing,jdbcType=INTEGER}, #{exp,jdbcType=INTEGER})")
     int insert(Juesejineng record);
 
     /**
@@ -121,7 +121,10 @@ public interface JuesejinengMapper {
             "      <if test=\"shuxing != null\">\n" +
             "        shuxing,\n" +
             "      </if>\n" +
-            "    </trim>\n" +
+            "    <if test=\"exp != null\">\n" +
+            "        exp,\n" +
+            "      </if>" +
+            "</trim>\n" +
             "    <trim prefix=\"values (\" suffix=\")\" suffixOverrides=\",\">\n" +
             "      <if test=\"jnid != null\">\n" +
             "        #{jnid,jdbcType=VARCHAR},\n" +
@@ -195,7 +198,10 @@ public interface JuesejinengMapper {
             "      <if test=\"shuxing != null\">\n" +
             "        #{shuxing,jdbcType=INTEGER},\n" +
             "      </if>\n" +
-            "    </trim>" +
+            "    <if test=\"exp != null\">\n" +
+            "        #{exp,jdbcType=INTEGER},\n" +
+            "      </if>" +
+            "</trim>" +
             "</script>")
     int insertSelective(Juesejineng record);
 
@@ -225,6 +231,84 @@ public interface JuesejinengMapper {
      *
      * @mbg.generated
      */
+    @Update("<script>" +
+            "update juesejineng\n" +
+            "    <set>\n" +
+            "      <if test=\"jueseid != null\">\n" +
+            "        jueseID = #{jueseid,jdbcType=VARCHAR},\n" +
+            "      </if>\n" +
+            "      <if test=\"jinengid != null\">\n" +
+            "        jinengID = #{jinengid,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"hp != null\">\n" +
+            "        hp = #{hp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"mp != null\">\n" +
+            "        mp = #{mp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"gjl != null\">\n" +
+            "        gjl = #{gjl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"fyl != null\">\n" +
+            "        fyl = #{fyl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"jueduigjl != null\">\n" +
+            "        jueduigjl = #{jueduigjl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"jueduifyl != null\">\n" +
+            "        jueduifyl = #{jueduifyl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxhp != null\">\n" +
+            "        maxhp = #{maxhp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxmp != null\">\n" +
+            "        maxmp = #{maxmp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxgjl != null\">\n" +
+            "        maxgjl = #{maxgjl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxfyl != null\">\n" +
+            "        maxfyl = #{maxfyl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxjueduigjl != null\">\n" +
+            "        maxjueduigjl = #{maxjueduigjl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"maxjueduifyl != null\">\n" +
+            "        maxjueduifyl = #{maxjueduifyl,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"xiaoguoleixing != null\">\n" +
+            "        xiaoguoleixing = #{xiaoguoleixing,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"leixing != null\">\n" +
+            "        leixing = #{leixing,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"needhp != null\">\n" +
+            "        needhp = #{needhp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"needmp != null\">\n" +
+            "        needmp = #{needmp,jdbcType=BIGINT},\n" +
+            "      </if>\n" +
+            "      <if test=\"needleixing != null\">\n" +
+            "        needleixing = #{needleixing,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"name != null\">\n" +
+            "        name = #{name,jdbcType=VARCHAR},\n" +
+            "      </if>\n" +
+            "      <if test=\"level != null\">\n" +
+            "        level = #{level,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"zhongzu != null\">\n" +
+            "        zhongzu = #{zhongzu,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"shuxing != null\">\n" +
+            "        shuxing = #{shuxing,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "      <if test=\"exp != null\">\n" +
+            "        exp = #{exp,jdbcType=INTEGER},\n" +
+            "      </if>\n" +
+            "    </set>\n" +
+            "    where jnID = #{jnid,jdbcType=VARCHAR}" +
+            "</script>")
     int updateByPrimaryKeySelective(Juesejineng record);
 
     /**
@@ -233,5 +317,31 @@ public interface JuesejinengMapper {
      *
      * @mbg.generated
      */
+    @Update("update juesejineng\n" +
+            "    set jueseID = #{jueseid,jdbcType=VARCHAR},\n" +
+            "      jinengID = #{jinengid,jdbcType=INTEGER},\n" +
+            "      hp = #{hp,jdbcType=BIGINT},\n" +
+            "      mp = #{mp,jdbcType=BIGINT},\n" +
+            "      gjl = #{gjl,jdbcType=BIGINT},\n" +
+            "      fyl = #{fyl,jdbcType=BIGINT},\n" +
+            "      jueduigjl = #{jueduigjl,jdbcType=BIGINT},\n" +
+            "      jueduifyl = #{jueduifyl,jdbcType=BIGINT},\n" +
+            "      maxhp = #{maxhp,jdbcType=BIGINT},\n" +
+            "      maxmp = #{maxmp,jdbcType=BIGINT},\n" +
+            "      maxgjl = #{maxgjl,jdbcType=BIGINT},\n" +
+            "      maxfyl = #{maxfyl,jdbcType=BIGINT},\n" +
+            "      maxjueduigjl = #{maxjueduigjl,jdbcType=BIGINT},\n" +
+            "      maxjueduifyl = #{maxjueduifyl,jdbcType=BIGINT},\n" +
+            "      xiaoguoleixing = #{xiaoguoleixing,jdbcType=INTEGER},\n" +
+            "      leixing = #{leixing,jdbcType=INTEGER},\n" +
+            "      needhp = #{needhp,jdbcType=BIGINT},\n" +
+            "      needmp = #{needmp,jdbcType=BIGINT},\n" +
+            "      needleixing = #{needleixing,jdbcType=INTEGER},\n" +
+            "      name = #{name,jdbcType=VARCHAR},\n" +
+            "      level = #{level,jdbcType=INTEGER},\n" +
+            "      zhongzu = #{zhongzu,jdbcType=INTEGER},\n" +
+            "      shuxing = #{shuxing,jdbcType=INTEGER},\n" +
+            "    exp = #{exp,jdbcType=INTEGER}\n" +
+            "    where jnID = #{jnid,jdbcType=VARCHAR}")
     int updateByPrimaryKey(Juesejineng record);
 }

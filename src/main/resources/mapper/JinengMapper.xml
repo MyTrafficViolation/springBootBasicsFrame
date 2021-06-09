@@ -151,6 +151,9 @@
       <if test="needleixing != null">
         needleixing,
       </if>
+      <if test="exp != null">
+        exp,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -218,6 +221,9 @@
       </if>
       <if test="needleixing != null">
         #{needleixing,jdbcType=INTEGER},
+      </if>
+      <if test="exp != null">
+        #{exp,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -291,6 +297,9 @@
       <if test="needleixing != null">
         needleixing = #{needleixing,jdbcType=INTEGER},
       </if>
+      <if test="exp != null">
+        exp = #{exp,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -320,7 +329,8 @@
       leixing = #{leixing,jdbcType=INTEGER},
       needhp = #{needhp,jdbcType=BIGINT},
       needmp = #{needmp,jdbcType=BIGINT},
-      needleixing = #{needleixing,jdbcType=INTEGER}
+      needleixing = #{needleixing,jdbcType=INTEGER},
+      exp = #{exp,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
