@@ -167,6 +167,10 @@ public interface JueseMapper {
     Juese selectByPrimaryKey(String jueseid);
 
     @Select("select  *  from juese")
+    @Results({
+            @Result(property = "juesejinengs", column = "jueseid",
+                    many = @Many(select = "com.example.mydemo.dao.JuesejinengMapper.selectByJueseId"))
+    })
     List<Juese> selectAll();
 
 

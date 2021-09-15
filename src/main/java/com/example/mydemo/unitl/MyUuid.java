@@ -20,4 +20,12 @@ public class MyUuid {
         Random random =new Random();
         return random.nextInt(max)+1;
     }
+    public static void err(Object o,ReturnData returnData){
+        returnData.setCode(-1);
+        returnData.setData(o);
+    }
+
+    public static ReturnData err(Object o){
+        return new ReturnData(-1,o);
+    }
 }
